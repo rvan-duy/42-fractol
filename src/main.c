@@ -6,11 +6,11 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/06 15:27:32 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/07 14:40:19 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/07 18:30:41 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fract_ol.h"
+#include "fractol.h"
 #include "mlx.h"
 
 typedef struct  s_data {
@@ -33,13 +33,14 @@ void    mandelbrot(t_data *data, int width, int height)
 {
     int row = 0;
     int col = 0;
-    int max = 1000;
+    int max = 200;
     int colors[max];
     int i = 0;
     
     while (i < max)
     {
-        colors[i] = (i + 0x00FF00) / (8.0 * i);
+        // colors[i] = (i + 0x0000FF) / (8.0 * i);
+        colors[i] = 400 - (10 * i);
         i++;
     }
     

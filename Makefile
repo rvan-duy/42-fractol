@@ -6,11 +6,11 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/07 14:01:07 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/07 18:24:10 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= fract_ol
+NAME	= fractol
 CC		= gcc
 FLAGS	= -Wall -Wextra -Werror -g
 HEADER	= -I include
