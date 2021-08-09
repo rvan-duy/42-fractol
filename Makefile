@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/08 21:56:30 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/08 23:14:05 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ HEADER	= -I include
 
 SRC		= main_new.c \
 			init/init_mlx.c \
+			hooks/hooks.c \
+			fractals/draw_fractal.c \
 			fractals/mandelbrot.c \
 			utilities/utilities_1.c
 
