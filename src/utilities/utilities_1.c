@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:52:44 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/09 15:04:56 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/09 16:49:22 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,11 @@ void	re_scale_coord(t_1d_coord *src, t_1d_coord *dst)
 
 	dst->point = (dst->max_range + abs(dst->min_range))
 		* ratio + dst->min_range;
+}
+
+double	map(int original_point, int original_max, int new_min, int new_max)
+{
+	const double	ratio = (double)original_point / original_max;
+
+	return ((new_max + abs(new_min)) * ratio + new_min);
 }

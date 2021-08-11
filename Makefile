@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/08 23:14:05 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/10 17:42:35 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,9 @@ fclean:
 re: fclean all
 
 test: $(NAME)
-	./fractol
+	./fractol mandelbrot
+
+only_program: $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
 
 .PHONY: all clean fclean re

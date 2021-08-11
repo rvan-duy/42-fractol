@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/09 14:28:46 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/11 16:58:26 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_mlx {
 	void		*win;
 	t_image		img;
 	t_fractol	fractol_info;
+	double		zoom;
 }	t_mlx;
 
 typedef struct s_1d_coord {

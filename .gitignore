@@ -1,3 +1,5 @@
 *.o
 *.a
 fractol
+a.out
+.normignore

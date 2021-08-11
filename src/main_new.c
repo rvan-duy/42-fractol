@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:20:09 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/09 14:33:12 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/11 23:19:08 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int	main(int argc, char **argv)
 		read_arguments(mlx, argv);
 		init_mlx(mlx);
 		mlx_expose_hook(mlx->win, main_hook, mlx);
-		mlx_hook(mlx->win, 2, 1L << 0, key_hook, mlx);
+		mlx_hook(mlx->win, KEY_PRESS, 1L << 0, key_hook, mlx);
+		// mlx_do_key_autorepeaton(mlx->mlx);
 		mlx_loop(mlx->mlx);
 	}
 	else
