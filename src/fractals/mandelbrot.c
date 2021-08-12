@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:43:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/11 17:43:25 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 10:52:32 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,10 @@ void	mandelbrot(t_mlx *mlx)
 		col = 0;
 		while (col < WINDOW_WIDTH)
 		{
-			// double c_re = (col - WINDOW_WIDTH/2.0)*4.0/WINDOW_WIDTH;
-			// double c_im = (row - WINDOW_HEIGHT/2.0)*4.0/WINDOW_WIDTH;
-			double c_re = (((double)col / WINDOW_WIDTH) - 0.5) / mlx->zoom * 3.0 - 0.7; // add stuf behind this to decide on zoom
-			double c_im = (((double)row / WINDOW_HEIGHT) - 0.5) / mlx->zoom * 3.0;
+			// double c_re = (((double)col / WINDOW_WIDTH) - 0.5) / mlx->zoom * 3.0 - 0.7; // add stuf behind this to decide on zoom
+			double c_re = (((double)col / WINDOW_WIDTH) - 0.5) / mlx->zoom * 3.0 - 0.7 + mlx->zoom_x; // add stuf behind this to decide on zoom
+			// double c_im = (((double)row / WINDOW_HEIGHT) - 0.5) / mlx->zoom * 3.0;
+			double c_im = (((double)row / WINDOW_HEIGHT) - 0.5) / mlx->zoom * 3.0 + mlx->zoom_y;
 			double x = 0, y = 0;
 			int iteration = 0;
 			while (x*x+y*y <= 4 && iteration < max)

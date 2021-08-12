@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/11 16:58:26 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 11:55:26 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,10 @@ typedef struct s_mlx {
 	t_image		img;
 	t_fractol	fractol_info;
 	double		zoom;
+	double		zoom_x;
+	double		zoom_y;
+	double		thingy;
+	double		thingy_2;
 }	t_mlx;
-
-typedef struct s_1d_coord {
-	int		min_range;
-	int		max_range;
-	double	point;
-}	t_1d_coord;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:47:57 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/11 23:18:35 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 12:26:28 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "fractol.h"
 #include "fractals.h"
 #include "mlx.h"
+#include "utilities.h"
+#include "libft.h"
 #include <stdio.h>
 
 int	main_hook(t_mlx *mlx)
@@ -28,22 +30,43 @@ int	main_hook(t_mlx *mlx)
 
 int	key_hook(int keycode, t_mlx *mlx)
 {
+	printf("keycode: %d\n", keycode);
 	if (keycode == ESC_LINUX || keycode == ESC_MACOS)
 	{
 		mlx_destroy_image(mlx->mlx, mlx->img.img);
 		mlx_destroy_window(mlx->mlx, mlx->win);
-		free(mlx);
+		ft_free((void **)&mlx);
 		exit(EXIT_SUCCESS);
 	}
-	if (keycode == 65362 || 126)
+	if (keycode == 122 || keycode == 126)
 	{
 		int	x, y;
-		mlx->zoom += 0.5;
 		mlx_mouse_get_pos(mlx->mlx, mlx->win, &x, &y);
-		printf("%d %d\n", x, y);
+		if (zoom_if_possible(mlx))
+		{
+			mlx_destroy_image(mlx->mlx, mlx->img.img);
+			mlx_clear_window(mlx->mlx, mlx->win);
+			main_hook(mlx);
+		}
+	}
+	if (keycode >= 65361 && keycode <= 65364)
+	{
+		if (keycode == 65361)
+			mlx->zoom_x -= (0.05 / mlx->thingy_2);
+		else if (keycode == 65362)
+			mlx->zoom_y -= (0.05 / mlx->thingy_2);
+		else if (keycode == 65363)
+			mlx->zoom_x += (0.05 / mlx->thingy_2);
+		else if (keycode == 65364)
+			mlx->zoom_y += (0.05 / mlx->thingy_2);
+		printf("thing; %f x;%f y;%f\n", mlx->thingy_2, mlx->zoom_x, mlx->zoom_y);
 		mlx_destroy_image(mlx->mlx, mlx->img.img);
 		mlx_clear_window(mlx->mlx, mlx->win);
 		main_hook(mlx);
 	}
 	return (0);
 }
+
+
+//  mouse position out of bounds then do not take it into accout
+//	if it is in the screen add it to the zooming formula
