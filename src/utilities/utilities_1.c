@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:52:44 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/12 12:27:47 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 13:31:50 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,9 @@ bool	zoom_if_possible(t_mlx *mlx)
 	else
 		zoom_screen(mlx, x_mouse_pos, y_mouse_pos);
 	return (true);
+}
+
+int	create_trgb(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
 }

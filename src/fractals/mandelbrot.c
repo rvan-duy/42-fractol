@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:43:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/12 10:52:32 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 13:34:28 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "fractol.h"
 #include "libft.h"
 #include <stdio.h>
+#include <math.h>
 
 // void	mandelbrot(t_mlx *mlx)
 // {
@@ -114,10 +115,12 @@ void	mandelbrot(t_mlx *mlx)
 {
 	int row = 0;
 	int col = 0;
-	int max = 100;
+	int max = 200;
 	int colors[max];
 	int i = 0;
+	double k;
 	
+
 	ft_bzero(colors, sizeof(colors));
 	while (i < max && (400 - (10 * i) > -1))
 	{
@@ -148,7 +151,12 @@ void	mandelbrot(t_mlx *mlx)
 			}
 			if (iteration < max)
 			{
-				putpixel(mlx->img, col, row, colors[iteration]);
+				k = (double) (iteration - 0) / (max - 0);
+				// k = (cos(k * 3.14159 + 3.14159) + 1) / 2;
+				// printf("%f ", k);
+				int trgb = create_trgb(0, 0, k * 255, 0);
+				putpixel(mlx->img, col, row, trgb);
+				// putpixel(mlx->img, col, row, colors[iteration]);
 				// my_mlx_pixel_put(data, col, row, 0x000000 + (iteration * 2));
 			}
 			else
