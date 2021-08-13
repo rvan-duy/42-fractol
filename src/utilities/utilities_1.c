@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:52:44 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/12 21:15:46 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/13 17:46:06 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "mlx.h"
 #include <math.h>
 
-void	putpixel(t_image image, int x, int y, int color)
+void	putpixel(t_var *v, int x, int y, int color)
 {
-	const char	*dst = image.addr + (y * image.ll
-		+ x * (image.bpp / 8));
+	const char	*dst = v->addr + (y * v->addr_vars.line_len
+		+ x * (v->addr_vars.bits_pp / 8));
 
 	*(unsigned int *)dst = color;
 }
@@ -66,6 +66,6 @@ int	create_rgb(int r, int g, int b)
 void	refresh_window(t_var *v)
 {
 	mlx_destroy_image(v->mlx, v->img);
-	mlx_clear_window(v->mlx, v->win);
+	// mlx_clear_window(v->mlx, v->win);
 	main_hook(v);
 }

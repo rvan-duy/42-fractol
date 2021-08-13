@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/13 16:30:27 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/13 17:34:45 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CC		= gcc
 FLAGS	= -Wall -Wextra -Werror -g
 HEADER	= -I include
 
-SRC		= main_new.c \
-			init/init.c \
+SRC		= main/_main.c \
+			main/init.c \
 			hooks/hooks.c \
 			fractals/draw_fractal.c \
 			fractals/mandelbrot.c \

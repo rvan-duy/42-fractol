@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:43:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/12 21:17:35 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/13 18:26:06 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,23 +120,20 @@ void	mandelbrot(t_var *v)
 {
 	int row = 0;
 	int col = 0;
-	int max = 130;
-	int min = 50;
 	double k;
 
-	printf("hello?\n");
 	while (row < WINDOW_HEIGHT)
 	{
 		col = 0;
 		while (col < WINDOW_WIDTH)
 		{
 			// double c_re = (((double)col / WINDOW_WIDTH) - 0.5) / mlx->zoom * 3.0 - 0.7; // add stuf behind this to decide on zoom
-			double c_re = (((double)col / WINDOW_WIDTH) - 0.5) / v->fractal.zoom * 3.0 - 0.7 + v->fractal.x_pos; // add stuf behind this to decide on zoom
+			double c_re = (((double)col / WINDOW_WIDTH) - 0.5) / v->fractal.zoom * 3.0 - 0.7 + v->fractal.x_offset; // add stuf behind this to decide on zoom
 			// double c_im = (((double)row / WINDOW_HEIGHT) - 0.5) / mlx->zoom * 3.0;
-			double c_im = (((double)row / WINDOW_HEIGHT) - 0.5) / v->fractal.zoom * 3.0 + v->fractal.y_pos;
+			double c_im = (((double)row / WINDOW_HEIGHT) - 0.5) / v->fractal.zoom * 3.0 + v->fractal.y_offset;
 			double x = 0, y = 0;
 			int iteration = 0;
-			while (x*x+y*y <= 4 && iteration < max)
+			while (x*x+y*y <= 4 && iteration < v->fractal.max_iterations)
 			{
 				double x_new = x*x - y*y + c_re;
 				y = 2*x*y + c_im;
@@ -145,22 +142,20 @@ void	mandelbrot(t_var *v)
 					break;
 				iteration++;
 			}
-			if (iteration < max)
+			if (iteration < v->fractal.max_iterations)
 			{
-				k = (double) (iteration - min) / (max - min);
+				k = (double) (iteration - v->fractal.min_iterations) / (v->fractal.max_iterations - v->fractal.min_iterations);
 				// k = (cos(k * 3.14159 + 3.14159) + 1) / 2;
 				// printf("%f ", k);
 				int rgb = create_rgb(k * 255, 0, k * 255);
-				putpixel(*v->img_vars, col, row, rgb);
+				putpixel(v, col, row, rgb);
 				// putpixel(mlx->img, col, row, colors[iteration]);
 				// my_mlx_pixel_put(data, col, row, 0x000000 + (iteration * 2));
 			}
 			else
-				putpixel(*v->img_vars, col, row, 0x000000);
-			printf("col:%d\n", col);
+				putpixel(v, col, row, 0x000000);
 			col++;
 		}
-			printf("row:%d\n", row);
 		row++;
 	}
 	printf("done\n");
