@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:51:06 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/11 23:19:17 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 19:18:07 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 # define ESC_LINUX 65307
 # define ESC_MACOS 53
+# define Z_LINUX 122
 
-int	main_hook(t_mlx *mlx);
-int	key_hook(int keycode, t_mlx *mlx);
+int	main_hook(t_var *v);
+int	key_hook(int keycode, t_var *v);
 
 #endif

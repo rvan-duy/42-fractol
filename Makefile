@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/10 17:42:35 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/13 16:30:27 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS	= -Wall -Wextra -Werror -g
 HEADER	= -I include
 
 SRC		= main_new.c \
-			init/init_mlx.c \
+			init/init.c \
 			hooks/hooks.c \
 			fractals/draw_fractal.c \
 			fractals/mandelbrot.c \
@@ -25,6 +25,11 @@ SRC		= main_new.c \
 LIBFT	= src/libft/libft.a
 MLX		= src/minilibx_linux/libmlx.a -lXext -lX11 -lm -lz
 
+BOLD = \e[1m
+RESET = \e[0m
+LIGHT_GREEN = \e[92m
+LIGHT_CYAN = \e[96m
+
 SRCS 	= $(addprefix src/, $(SRC))
 OBJS	= $(SRCS:src/%.c=obj/%.o)
 
@@ -32,23 +37,24 @@ all: $(NAME)
 
 obj/%.o: src/%.c
 	@mkdir -p $(@D)
+	@printf "${LIGHT_CYAN}${BOLD}make${RESET}   [${LIGHT_GREEN}fractol${RESET}] : "
 	$(CC) $(FLAGS) $(HEADER) -c $< -o $@
 
 $(NAME): $(OBJS)
-	make -C src/libft
-	make -C src/minilibx_linux
-	$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
+	@make -C src/libft
+	@$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX) -o $(NAME)
+	@printf "${LIGHT_CYAN}${BOLD}make${RESET}   [${LIGHT_GREEN}fractol${RESET}] : "
+	@printf "./$(NAME) created\n"
 
 clean:
-	/bin/rm -f $(OBJS)
-	/bin/rm -f .DS_Store
-	/bin/rm -f a.out
-	make -C src/libft clean
-
-fclean:
-	/bin/rm -f $(NAME)
+	@printf "${LIGHT_CYAN}${BOLD}clean${RESET} [${LIGHT_GREEN}fractol${RESET}] : "
 	/bin/rm -rf obj
-	make -C src/libft fclean
+	@make -C src/libft clean
+
+fclean: clean
+	@printf "${LIGHT_CYAN}${BOLD}fclean${RESET} [${LIGHT_GREEN}fractol${RESET}] : "
+	/bin/rm -f $(NAME)
+	@make -C src/libft fclean
 
 re: fclean all
 

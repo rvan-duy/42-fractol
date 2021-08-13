@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:47:57 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/12 12:26:28 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 21:18:13 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,51 +18,52 @@
 #include "libft.h"
 #include <stdio.h>
 
-int	main_hook(t_mlx *mlx)
+int	main_hook(t_var *v)
 {
-	mlx->img.img = mlx_new_image(mlx->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	mlx->img.addr = mlx_get_data_addr(mlx->img.img, &mlx->img.bits_per_pixel, \
-		&mlx->img.line_length, &mlx->img.endian);
-	draw_fractal(mlx);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img.img, 0, 0);
+	printf("entering main hook\n");
+	v->img = mlx_new_image(v->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	printf("getting the adder\n");
+	v->img_vars->addr = mlx_get_data_addr(v->img, \
+	&v->img_vars->bpp, &v->img_vars->ll, &v->img_vars->end);
+	draw_fractal(v);
+	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
 	return (0);
 }
 
-int	key_hook(int keycode, t_mlx *mlx)
+int	key_hook(int keycode, t_var *v)
 {
 	printf("keycode: %d\n", keycode);
 	if (keycode == ESC_LINUX || keycode == ESC_MACOS)
 	{
-		mlx_destroy_image(mlx->mlx, mlx->img.img);
-		mlx_destroy_window(mlx->mlx, mlx->win);
-		ft_free((void **)&mlx);
+		mlx_destroy_image(v->mlx, v->img);
+		mlx_destroy_window(v->mlx, v->win);
+		ft_free((void **)&v);
 		exit(EXIT_SUCCESS);
 	}
-	if (keycode == 122 || keycode == 126)
+	if (keycode == Z_LINUX)
 	{
-		int	x, y;
-		mlx_mouse_get_pos(mlx->mlx, mlx->win, &x, &y);
-		if (zoom_if_possible(mlx))
-		{
-			mlx_destroy_image(mlx->mlx, mlx->img.img);
-			mlx_clear_window(mlx->mlx, mlx->win);
-			main_hook(mlx);
-		}
+		v->fractal.zoom *= 2;
+		v->fractal.zoom_modifier *= 1.5;
+		refresh_window(v);
 	}
 	if (keycode >= 65361 && keycode <= 65364)
 	{
 		if (keycode == 65361)
-			mlx->zoom_x -= (0.05 / mlx->thingy_2);
+			v->fractal.x_pos -= (0.05 / v->fractal.zoom_modifier);
 		else if (keycode == 65362)
-			mlx->zoom_y -= (0.05 / mlx->thingy_2);
+			v->fractal.y_pos -= (0.05 / v->fractal.zoom_modifier);
 		else if (keycode == 65363)
-			mlx->zoom_x += (0.05 / mlx->thingy_2);
+			v->fractal.x_pos += (0.05 / v->fractal.zoom_modifier);
 		else if (keycode == 65364)
-			mlx->zoom_y += (0.05 / mlx->thingy_2);
-		printf("thing; %f x;%f y;%f\n", mlx->thingy_2, mlx->zoom_x, mlx->zoom_y);
-		mlx_destroy_image(mlx->mlx, mlx->img.img);
-		mlx_clear_window(mlx->mlx, mlx->win);
-		main_hook(mlx);
+			v->fractal.y_pos += (0.05 / v->fractal.zoom_modifier);
+		refresh_window(v);
+	}
+	if (keycode == 96)
+	{
+		char *line;
+		printf("Starting configuration menu:\n>\n");
+		get_next_line(STDIN_FILENO, &line);
+		printf("[%s]\n", line);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 18:37:10 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/08 21:37:40 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 21:05:35 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 # include "structs.h"
 
-void	init_mlx(t_mlx *mlx);
+void	init(t_var *v);
 
 #endif

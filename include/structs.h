@@ -6,41 +6,42 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/12 11:55:26 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 21:10:39 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# define MANDELBROT 0
-# define JULIA 1
-
 # include <stdlib.h>
 
+enum e_fractal_set {
+	MANDELBROT,
+	JULIA
+};
+
 typedef struct s_image {
-	void	*img;
 	void	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	int		bpp;
+	int		ll;
+	int		end;
 }	t_image;
 
-typedef struct s_fractol {
-	int	fractol_set;
-	int	variant;
-}	t_fractol;
+typedef struct s_fractal {
+	int		fractal_set;
+	int		variant;
+	double	zoom;
+	double	zoom_modifier;
+	int		x_pos;
+	int		y_pos;
+}	t_fractal;
 
-typedef struct s_mlx {
+typedef struct s_var {
 	void		*mlx;
 	void		*win;
-	t_image		img;
-	t_fractol	fractol_info;
-	double		zoom;
-	double		zoom_x;
-	double		zoom_y;
-	double		thingy;
-	double		thingy_2;
-}	t_mlx;
+	void		*img;
+	t_image		*img_vars;
+	t_fractal	fractal;
+}	t_var;
 
 #endif

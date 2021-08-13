@@ -6,14 +6,16 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 23:12:56 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/08 23:18:51 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/12 19:29:06 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractals.h"
+#include <stdio.h>
 
-void	draw_fractal(t_mlx *mlx)
+void	draw_fractal(t_var *v)
 {
-	if (mlx->fractol_info.fractol_set == MANDELBROT)
-		mandelbrot(mlx);
+	printf("draw_fractal\n");
+	if (v->fractal.fractal_set == MANDELBROT)
+		mandelbrot(v);
 }

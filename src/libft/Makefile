@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/27 19:13:56 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/06/25 11:58:48 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/13 16:18:13 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +27,13 @@ BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 				ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 				ft_lstiter_bonus.c ft_lstclear_bonus.c ft_lstmap_bonus.c
 
-NOCOLOR = \033[0m
-COLOR = \033[33m
+BOLD = \e[1m
+RESET = \e[0m
+LIGHT_GREEN = \e[92m
+LIGHT_CYAN = \e[96m
 
-OBJ =   $(SRC:.c=.o)
-
-BONUS_OBJ =     $(BONUS:.c=.o)
+OBJ 		= $(SRC:%.c=obj/%.o)
+BONUS_OBJ	= $(BONUS:%.c=obj/%.o)
 
 INCLUDES = libft.h
 
@@ -40,27 +41,30 @@ INCLUDES = libft.h
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(INCLUDES)
+$(NAME): $(OBJ)
 	@ar rcs $(NAME) $?
-	@echo "$(COLOR)$(NAME) has been created.$(NOCOLOR)"
+	@printf "${LIGHT_CYAN}${BOLD}make${RESET}   [${LIGHT_GREEN}libft${RESET}] : "
+	@printf "libft.a created\n"
+	
+obj/%.o: %.c
+	@mkdir -p $(@D)
+	@gcc -Wall -Wextra -Werror -c $< -o $@
 
-%.o: %.c
-	@gcc -Wall -Wextra -Werror -c $<
-
-bonus: $(NAME) $(BONUS_OBJ) $(INCLUDES)
+bonus: $(NAME) $(BONUS_OBJ)
 	@touch bonus
-	ar rcs $(NAME) $?
+	@ar rcs $(NAME) $?
 
 norm:
 	norminette $(SRC) $(BONUS) $(INCLUDES)
 
 clean:
-	@/bin/rm -f $(OBJ) $(BONUS_OBJ)
-	@echo "$(COLOR)Removing object files.$(NOCOLOR)"
+	@printf "${LIGHT_CYAN}${BOLD}clean${RESET}  [${LIGHT_GREEN}libft${RESET}] : "
+	/bin/rm -rf obj
 
 fclean: clean
-	@/bin/rm -f $(NAME)
-	@/bin/rm -f bonus
-	@echo "$(COLOR)Removing $(NAME)$(NOCOLOR)"
+	@printf "${LIGHT_CYAN}${BOLD}fclean${RESET} [${LIGHT_GREEN}libft${RESET}] : "
+	/bin/rm -f $(NAME)
+	@printf "${LIGHT_CYAN}${BOLD}fclean${RESET} [${LIGHT_GREEN}libft${RESET}] : "
+	/bin/rm -f bonus
 
 re: fclean all
