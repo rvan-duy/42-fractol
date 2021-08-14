@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/13 17:34:45 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/14 21:18:57 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
+	@printf "${LIGHT_CYAN}${BOLD}test${RESET}   [${LIGHT_GREEN}fractol${RESET}] : "
 	./fractol mandelbrot
 
 only_program: $(OBJS)

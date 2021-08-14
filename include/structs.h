@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/14 17:04:29 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/14 21:35:35 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,5 @@ typedef struct s_var {
 	t_addr		addr_vars;
 	t_fractal	fractal;
 }	t_var;
-
-typedef struct s_math_vars {
-	int		row;
-	int		col;
-	double	comp_real;
-	double	comp_imag;
-	int		ite;
-}	t_math_vars;
 
 #endif
