@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 18:28:56 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/13 18:59:51 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/14 11:38:19 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	init_var(t_var *v)
 	v->fractal.speed = 1.0;
 	v->fractal.x_offset = 0.0;
 	v->fractal.y_offset = 0.0;
-	v->fractal.min_iterations = 50;
-	v->fractal.max_iterations = 130;
+	v->fractal.min_ite = 150;
+	v->fractal.max_ite = 200;
 }
 
 void	init_mlx(t_var *v)
