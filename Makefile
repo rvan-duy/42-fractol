@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/16 21:53:01 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/16 22:04:44 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC		= fractol.c \
 			draw.c \
 			mandelbrot.c \
 			color.c \
-			utilities_1.c \
+			utilities.c \
 			config.c
 
 LIBFT	= src/libft/libft.a
