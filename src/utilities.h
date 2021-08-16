@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   hooks.h                                            :+:    :+:            */
+/*   utilities.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/08 22:51:06 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/12 19:18:07 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/08/08 21:55:07 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/08/16 14:17:29 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HOOKS_H
-# define HOOKS_H
+#ifndef UTILITIES_H
+# define UTILITIES_H
 
 # include "structs.h"
+# include "mlx.h"
+# include "hooks.h"
 
-# define KEY_PRESS 2
-# define DESTORY_NOTIFY 17
-
-# define ESC_LINUX 65307
-# define ESC_MACOS 53
-# define Z_LINUX 122
-
-int	main_hook(t_var *v);
-int	key_hook(int keycode, t_var *v);
+void	putpixel(t_var *v, int x, int y, int color);
+int		create_rgb(int r, int g, int b);
+void	refresh_window(t_var *v);
+void	close_window(t_var *v);
 
 #endif

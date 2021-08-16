@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   init.h                                             :+:    :+:            */
+/*   parse.h                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/08 18:37:10 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/13 17:16:54 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/08/16 15:00:47 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/08/16 15:18:03 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#ifndef PARSE_H
+# define PARSE_H
 
 # include "structs.h"
+# include "libft.h"
+# include <stdio.h>
 
-void	init_var(t_var *v);
-void	init_mlx(t_var *v);
+void	parse_fractal_type(t_fractal *fractal, char *argument);
+void	parse_fractal_color_theme(t_fractal *t_fractal, char *argument);
 
 #endif

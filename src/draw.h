@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   draw_fractal.c                                     :+:    :+:            */
+/*   draw.h                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/08 23:12:56 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/13 18:34:47 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/08/08 21:57:32 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/08/12 19:20:08 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractals.h"
+#ifndef DRAW_H
+# define DRAW_H
 
-void	draw_fractal(t_var *v)
-{
-	v->fractal.fractal_arr[v->fractal.fractal_set](v);
-}
+# include "mandelbrot.h"
+
+void	draw_fractal(t_var *v);
+
+#endif

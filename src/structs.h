@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/14 21:35:35 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 15:06:37 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ enum e_fractal_set {
 	JULIA
 };
 
+enum e_fractal_color {
+	RED,
+	GREEN,
+	BLUE
+};
+
 typedef struct s_addr {
 	int		bits_pp;
 	int		line_len;
@@ -29,7 +35,10 @@ typedef struct s_addr {
 typedef struct s_fractal {
 	int		fractal_set;
 	void	(*fractal_arr[2])(void *);
-	int		variant;
+	int		fractal_color_theme;
+	int		red;
+	int		green;
+	int		blue;
 	double	zoom;
 	double	speed;
 	double	x_offset;

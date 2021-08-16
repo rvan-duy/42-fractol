@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fractol.h                                          :+:    :+:            */
+/*   color.h                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/07 14:13:00 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/13 18:21:50 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/08/16 14:50:42 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/08/16 14:51:57 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef COLOR_H
+# define COLOR_H
 
-# define WINDOW_NAME "fractol - rvan-duy"
-# define WINDOW_WIDTH 1800
-# define WINDOW_HEIGHT 1800
+# include "utilities.h"
+
+void	apply_color_theme(t_var v, int row, int col, int iteration);
 
 #endif

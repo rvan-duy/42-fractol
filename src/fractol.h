@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   utilities.h                                        :+:    :+:            */
+/*   fractol.h                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/08 21:55:07 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/13 17:36:56 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/08/07 14:13:00 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/08/16 15:02:53 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILITIES_H
-# define UTILITIES_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
-# include "structs.h"
+# include "init.h"
+# include "hooks.h"
+# include "parse.h"
 
-void	putpixel(t_var *v, int x, int y, int color);
-int		create_rgb(int r, int g, int b);
-void	refresh_window(t_var *v);
+# define WINDOW_NAME "fractol - rvan-duy"
+# define WINDOW_WIDTH 1000
+# define WINDOW_HEIGHT 1000
 
 #endif
