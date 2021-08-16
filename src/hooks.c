@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:47:57 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 21:57:05 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 23:43:31 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	main_hook(t_var *v)
 	v->img = mlx_new_image(v->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	v->addr = mlx_get_data_addr(v->img, &v->addr_vars.bits_pp,
 			&v->addr_vars.line_len, &v->addr_vars.endian);
-	init_visuals(&v->fractal);
+	set_visuals(&v->fractal);
+	set_iterations(&v->fractal);
+	set_simple_color(&v->fractal);
 	draw_fractal(v);
 	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
 	return (0);

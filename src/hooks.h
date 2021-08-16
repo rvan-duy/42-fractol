@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:51:06 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 21:42:12 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 23:43:02 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "fractol.h"
 # include "draw.h"
 # include "config.h"
+# include "set.h"
 # include <stdio.h>
 
 # define KEY_PRESS 2

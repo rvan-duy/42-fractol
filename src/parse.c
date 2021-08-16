@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 15:00:16 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 16:19:04 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 23:42:02 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	parse_fractal_type(t_fractal *fractal, char *argument)
 void	parse_fractal_color_theme(t_fractal *t_fractal, char *argument)
 {
 	if (argument == NULL)
-		t_fractal->fractal_color_theme = RED;
+		t_fractal->fractal_color_theme = FIRE;
 	else if (!ft_strncmp(argument, "white", 6))
 		t_fractal->fractal_color_theme = WHITE;
 	else if (!ft_strncmp(argument, "red", 4))
@@ -44,5 +44,5 @@ void	parse_fractal_color_theme(t_fractal *t_fractal, char *argument)
 	else if (!ft_strncmp(argument, "purple", 7))
 		t_fractal->fractal_color_theme = PURPLE;
 	else
-		t_fractal->fractal_color_theme = RED;
+		t_fractal->fractal_color_theme = FIRE;
 }

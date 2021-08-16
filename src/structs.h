@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 16:18:47 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 23:39:40 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define STRUCTS_H
 
 # include <stdlib.h>
+# include <stdbool.h>
 
 enum e_fractal_set {
 	MANDELBROT,
@@ -27,7 +28,8 @@ enum e_fractal_color {
 	BLUE,
 	YELLOW,
 	TEAL,
-	PURPLE
+	PURPLE,
+	FIRE
 };
 
 typedef struct s_addr {
@@ -43,6 +45,7 @@ typedef struct s_fractal {
 	int		red;
 	int		green;
 	int		blue;
+	bool	simple_color;
 	double	zoom;
 	double	speed;
 	double	x_offset;

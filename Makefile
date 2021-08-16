@@ -6,19 +6,20 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/16 22:04:44 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/16 23:42:49 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
 CC		= gcc
-FLAGS	= -Wall -Wextra -Werror -g
+FLAGS	= -Ofast -Wall -Wextra -Werror -g
 HEADER	= -I src -I src/libft/ -I src/minilibx_linux
 
 SRC		= fractol.c \
 			init.c \
 			parse.c \
 			hooks.c \
+			set.c \
 			draw.c \
 			mandelbrot.c \
 			color.c \
