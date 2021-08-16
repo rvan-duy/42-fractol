@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 14:39:24 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 15:42:02 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 16:27:30 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	apply_color_theme(t_var v, int row, int col, int iteration)
 
 	if (iteration < v.fractal.max_ite)
 	{
-		k = (double)(iteration - v.fractal.min_ite)
-			/ (v.fractal.max_ite - v.fractal.min_ite);
+		k = fabs((double)(iteration - v.fractal.min_ite)
+				/ (v.fractal.max_ite - v.fractal.min_ite));
 		rgb = create_rgb(k * v.fractal.red, k * v.fractal.green,
 				k * v.fractal.blue);
 		putpixel(&v, col, row, rgb);

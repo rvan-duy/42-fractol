@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 15:06:37 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 16:18:47 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ enum e_fractal_set {
 };
 
 enum e_fractal_color {
+	WHITE,
 	RED,
 	GREEN,
-	BLUE
+	BLUE,
+	YELLOW,
+	TEAL,
+	PURPLE
 };
 
 typedef struct s_addr {
