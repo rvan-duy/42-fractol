@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:43:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 14:50:23 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/16 21:24:43 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void	mandelbrot(t_var *v)
 		}
 		row++;
 	}
+	ft_putendl_fd("[\e[92mfractol\e[0m] Image drawn", 2);
 }
