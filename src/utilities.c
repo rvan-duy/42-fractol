@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   utilities_1.c                                      :+:    :+:            */
+/*   utilities.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:52:44 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 21:25:01 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/19 13:53:22 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	create_rgb(int r, int g, int b)
 
 void	refresh_image(t_var *v)
 {
-	mlx_destroy_image(v->mlx, v->img);
 	main_hook(v);
 }
 

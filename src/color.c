@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 14:39:24 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 23:27:18 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/17 13:48:34 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 // max 200 min 150, k * 255, k * 255, 0 without cos << any color
 				// k = (cos(k * 3.14159 + 3.14159) + 1) / 2;
 // max 300 min 0, k * 255, k * 255, 0
+
+#include <stdio.h>
 
 void	apply_color_theme(t_var v, int row, int col, int iteration)
 {
@@ -33,9 +35,11 @@ void	apply_color_theme(t_var v, int row, int col, int iteration)
 		else
 			k = (double)(iteration - v.fractal.min_ite)
 				/ (v.fractal.max_ite - v.fractal.min_ite);
-		// k = (cos(k * 3.14159 + 3.14159) + 1) / 2;
+		k = (cos(k * 3.14159 + 3.14159) + 1) / 2;
 		rgb = create_rgb(k * v.fractal.red, k * v.fractal.green,
 				k * v.fractal.blue);
+		if (row == 10 && col == 10)
+			printf("k: %f\n", k);
 		putpixel(&v, col, row, rgb);
 	}
 	else
