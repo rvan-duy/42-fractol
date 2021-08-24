@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 18:28:56 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/19 13:26:40 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/24 13:33:05 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	init_mlx(t_var *v)
 {
 	v->mlx = mlx_init();
 	v->win = mlx_new_window(v->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME);
-	v->img = mlx_new_image(v->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	v->addr = mlx_get_data_addr(v->img, &v->addr_vars.bits_pp,
-			&v->addr_vars.line_len, &v->addr_vars.endian);
+	// v->img = mlx_new_image(v->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	// v->addr = mlx_get_data_addr(v->img, &v->addr_vars.bits_pp,
+	// 		&v->addr_vars.line_len, &v->addr_vars.endian);
 }

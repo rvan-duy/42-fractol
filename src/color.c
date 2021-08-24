@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 14:39:24 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/17 13:48:34 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/24 14:07:35 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	apply_color_theme(t_var v, int row, int col, int iteration)
 		k = (cos(k * 3.14159 + 3.14159) + 1) / 2;
 		rgb = create_rgb(k * v.fractal.red, k * v.fractal.green,
 				k * v.fractal.blue);
-		if (row == 10 && col == 10)
-			printf("k: %f\n", k);
 		putpixel(&v, col, row, rgb);
 	}
 	else

@@ -6,14 +6,19 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:47:57 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/19 13:52:57 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/24 14:08:29 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hooks.h"
 
+// This could be swapped around but still need to check..
+
 int	main_hook(t_var *v)
 {
+	v->img = mlx_new_image(v->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	v->addr = mlx_get_data_addr(v->img, &v->addr_vars.bits_pp,
+			&v->addr_vars.line_len, &v->addr_vars.endian);
 	set_visuals(&v->fractal);
 	set_iterations(&v->fractal);
 	set_simple_color(&v->fractal);

@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 21:38:32 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/17 14:09:35 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/24 14:02:45 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	start_config(t_var *v)
 		ret = execute_line(line, &v->fractal);
 		ft_free((void **)&line);
 	}
-	if (ret == -2)
+	if (ret == -2) // why?
 		return ;
 	ft_putendl_fd("[\e[92mfractol\e[0m] Refreshing image...", 2);
 	refresh_image(v);

@@ -6,13 +6,13 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/17 13:59:11 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/24 14:07:04 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
 CC		= gcc
-FLAGS	= -O3 -Wall -Wextra -Werror -g
+FLAGS	= -Ofast -Wall -Wextra -Werror -g
 HEADER	= -I src -I src/libft
 
 HEADER_LINUX = -I src/minilibx_linux
