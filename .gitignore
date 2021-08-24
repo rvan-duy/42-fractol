@@ -3,3 +3,6 @@
 fractol
 a.out
 .normignore
+libmlx.dylib
+.DS_Store
+.vscode/

@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:43:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/19 13:51:38 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/24 13:22:25 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	mandelbrot(t_var *v)
 		while (col < WINDOW_WIDTH)
 		{
 			real_component = (((double)col / WINDOW_WIDTH) - 0.5)
-				/ v->fractal.zoom * 3.0 - 0.7 + v->fractal.x_offset + f(v);
+				/ v->fractal.zoom * 3.0 - 0.7 + v->fractal.x_offset;
 			imag_component = (((double)row / WINDOW_HEIGHT) - 0.5)
 				/ v->fractal.zoom * 3.0 + v->fractal.y_offset;
 			iteration = mandelbrot_math(*v, real_component, imag_component);
@@ -61,4 +61,3 @@ void	mandelbrot(t_var *v)
 	}
 	ft_putendl_fd("[\e[92mfractol\e[0m] Image drawn", 2);
 }
-
