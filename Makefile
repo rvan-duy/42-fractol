@@ -6,13 +6,13 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/24 14:07:04 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/08/26 13:49:27 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
 CC		= gcc
-FLAGS	= -Ofast -Wall -Wextra -Werror -g
+FLAGS	= -Ofast -Wall -Wextra -Werror -g -fsanitize=address
 HEADER	= -I src -I src/libft
 
 HEADER_LINUX = -I src/minilibx_linux
@@ -25,6 +25,7 @@ SRC		= fractol.c \
 			set.c \
 			draw.c \
 			mandelbrot.c \
+			burning_ship.c \
 			color.c \
 			utilities.c \
 			config.c

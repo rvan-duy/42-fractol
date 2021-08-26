@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 15:00:16 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/16 23:42:02 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/26 13:45:59 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	parse_fractal_type(t_fractal *fractal, char *argument)
 		fractal->fractal_set = MANDELBROT;
 	else if (!ft_strncmp(argument, "julia", 6))
 		fractal->fractal_set = JULIA;
+	else if (!ft_strncmp(argument, "burning_ship", 13))
+		fractal->fractal_set = BURNING_SHIP;
 	else
 	{
 		printf("Usage:\n./fractol <mandelbrot | julia> [color_theme]\n");

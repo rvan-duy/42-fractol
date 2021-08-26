@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 14:39:24 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/24 14:07:35 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/24 14:10:24 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 // max 200 min 150, k * 255, k * 255, 0 without cos << any color
 				// k = (cos(k * 3.14159 + 3.14159) + 1) / 2;
 // max 300 min 0, k * 255, k * 255, 0
-
-#include <stdio.h>
 
 void	apply_color_theme(t_var v, int row, int col, int iteration)
 {

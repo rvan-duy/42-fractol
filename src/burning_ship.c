@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   mandelbrot.c                                       :+:    :+:            */
+/*   burning_ship.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/08 21:43:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/26 13:41:33 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/08/26 13:42:18 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/08/26 14:29:01 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mandelbrot.h"
+#include "burning_ship.h"
 
-static int	mandelbrot_math(t_var v, double comp_real, double comp_imag)
+static int	burning_ship_math(t_var v, double comp_real, double comp_imag)
 {
 	int		iteration;
 	double	x;
@@ -26,7 +26,7 @@ static int	mandelbrot_math(t_var v, double comp_real, double comp_imag)
 	while (x * x + y * y <= 4 && iteration < v.fractal.max_ite)
 	{
 		tmp = x * x - y * y + comp_real;
-		y = 2 * x * y + comp_imag;
+		y = fabs(2 * x * y) + comp_imag;
 		x = tmp;
 		if (x * x + y * y > 4)
 			return (iteration);
@@ -35,7 +35,7 @@ static int	mandelbrot_math(t_var v, double comp_real, double comp_imag)
 	return (iteration);
 }
 
-void	mandelbrot(t_var *v)
+void	burning_ship(t_var *v)
 {
 	int			row;
 	int			col;
@@ -53,12 +53,13 @@ void	mandelbrot(t_var *v)
 				/ v->fractal.zoom * 3.0 - 0.7 + v->fractal.x_offset;
 			imag_component = (((double)row / WINDOW_HEIGHT) - 0.5)
 				/ v->fractal.zoom * 3.0 + v->fractal.y_offset;
-			iteration = mandelbrot_math(*v, real_component, imag_component);
+			iteration = burning_ship_math(*v, real_component, imag_component);
 			apply_color_theme(*v, row, col, iteration);
 			col++;
 		}
 		row++;
 	}
+	// max:3000 min:2990 // max:1000 min:990 // colors are fucked lol google it or smth
 	// fix escape characters
 	ft_putendl_fd("[\e[92mfractol\e[0m] Image drawn", 2);
 }

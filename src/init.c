@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 18:28:56 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/24 13:33:05 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/26 13:47:37 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	init_var(t_fractal *fractal)
 {
-	fractal->fractal_arr[0] = (void *)mandelbrot;
+	fractal->fractal_arr[0] = &mandelbrot;
 	fractal->fractal_arr[1] = NULL;
+	fractal->fractal_arr[2] = &burning_ship;
 	fractal->zoom = 1.0;
 	fractal->speed = 1.0;
 	fractal->x_offset = 0.0;
