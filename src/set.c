@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 23:30:34 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/17 00:00:04 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/28 13:44:13 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	set_iterations(t_fractal *fractal)
 {
 	if (fractal->fractal_color_theme >= WHITE
 		&& fractal->fractal_color_theme <= PURPLE)
-		set_both_ite(fractal, 10, 150);
+		set_both_ite(fractal, 0, 40);
 	else if (fractal->fractal_color_theme == FIRE)
 		set_both_ite(fractal, 150, 200);
 }
