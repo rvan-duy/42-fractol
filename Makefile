@@ -6,7 +6,7 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/08/26 13:49:27 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/09/07 15:49:49 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC		= fractol.c \
 			set.c \
 			draw.c \
 			mandelbrot.c \
+			julia.c \
 			burning_ship.c \
 			color.c \
 			utilities.c \
@@ -53,9 +54,9 @@ obj/%.o: src/%.c
 
 $(NAME): $(OBJS)
 	@make -C src/libft
-	$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX_MACOS) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX_MACOS) -o $(NAME)
 	@printf "${LIGHT_CYAN}${BOLD}make${RESET}   [${LIGHT_GREEN}fractol${RESET}] : "
-	@printf "./$(NAME) created\n"
+	@printf "$(NAME) created\n"
 
 #Linux
 else
@@ -68,11 +69,11 @@ $(NAME): $(OBJS)
 	@make -C src/libft
 	@$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX_LINUX) -o $(NAME)
 	@printf "${LIGHT_CYAN}${BOLD}make${RESET}   [${LIGHT_GREEN}fractol${RESET}] : "
-	@printf "./$(NAME) created\n"
+	@printf "$(NAME) created\n"
 endif
 
 clean:
-	@printf "${LIGHT_CYAN}${BOLD}clean${RESET} [${LIGHT_GREEN}fractol${RESET}] : "
+	@printf "${LIGHT_CYAN}${BOLD}clean${RESET}  [${LIGHT_GREEN}fractol${RESET}] : "
 	/bin/rm -rf obj
 	@make -C src/libft clean
 

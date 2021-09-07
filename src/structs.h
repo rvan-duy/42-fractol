@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/26 13:49:10 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/07 15:21:17 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ enum e_fractal_color {
 	BLUE,
 	YELLOW,
 	TEAL,
-	PURPLE,
-	FIRE
+	PURPLE
 };
 
 typedef struct s_addr {
@@ -54,6 +53,8 @@ typedef struct s_fractal {
 	double	y_offset;
 	int		min_ite;
 	int		max_ite;
+	double	extra_param_1;
+	double	extra_param_2;
 }	t_fractal;
 
 typedef struct s_var {

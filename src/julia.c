@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   mandelbrot.c                                       :+:    :+:            */
+/*   julia.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/08/08 21:43:21 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/07 15:23:51 by rvan-duy      ########   odam.nl         */
+/*   Created: 2021/09/07 14:42:17 by rvan-duy      #+#    #+#                 */
+/*   Updated: 2021/09/07 15:39:55 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mandelbrot.h"
+#include "julia.h"
 
-static int	mandelbrot_math(t_var v, double comp_re, double comp_im)
+static int	julia_math(t_var v, double comp_re, double comp_im)
 {
 	int		iteration;
 	double	z_re;
@@ -20,13 +20,13 @@ static int	mandelbrot_math(t_var v, double comp_re, double comp_im)
 	double	tmp;
 
 	iteration = 0;
-	z_re = 0;
-	z_im = 0;
+	z_re = comp_re;
+	z_im = comp_im;
 	tmp = 0;
 	while (z_re * z_re + z_im * z_im <= 4 && iteration < v.fractal.max_ite)
 	{
-		tmp = z_re * z_re - z_im * z_im + comp_re;
-		z_im = 2 * z_re * z_im + comp_im;
+		tmp = z_re * z_re - z_im * z_im + v.fractal.extra_param_1;
+		z_im = 2 * z_re * z_im + v.fractal.extra_param_2;
 		z_re = tmp;
 		if (z_re * z_re + z_im * z_im > 4)
 			return (iteration);
@@ -35,7 +35,7 @@ static int	mandelbrot_math(t_var v, double comp_re, double comp_im)
 	return (iteration);
 }
 
-void	mandelbrot(t_var *v)
+void	julia(t_var *v)
 {
 	int			row;
 	int			col;
@@ -53,11 +53,11 @@ void	mandelbrot(t_var *v)
 				/ v->fractal.zoom * 3.0 - 0.7 + v->fractal.x_offset;
 			imag_component = (((double)row / WINDOW_HEIGHT) - 0.5)
 				/ v->fractal.zoom * 3.0 + v->fractal.y_offset;
-			iteration = mandelbrot_math(*v, real_component, imag_component);
+			iteration = julia_math(*v, real_component, imag_component);
 			apply_color_theme(*v, row, col, iteration);
 			col++;
 		}
 		row++;
 	}
-	ft_putendl_fd("[\x1b[92mfractol\x1b[0m Image drawn", 2);
+	ft_putendl_fd("[\x1b[92mfractol\x1b[0m] Image drawn", 2);
 }

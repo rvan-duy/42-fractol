@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 23:30:34 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/28 13:44:13 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/08/28 13:51:46 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void	set_visuals(t_fractal *fractal)
 		set_rgb(fractal, 0, 255, 0);
 	else if (fractal->fractal_color_theme == BLUE)
 		set_rgb(fractal, 0, 0, 255);
-	else if (fractal->fractal_color_theme == YELLOW
-		|| fractal->fractal_color_theme == FIRE)
+	else if (fractal->fractal_color_theme == YELLOW)
 		set_rgb(fractal, 255, 255, 0);
 	else if (fractal->fractal_color_theme == TEAL)
 		set_rgb(fractal, 0, 255, 255);
@@ -49,8 +48,6 @@ void	set_iterations(t_fractal *fractal)
 	if (fractal->fractal_color_theme >= WHITE
 		&& fractal->fractal_color_theme <= PURPLE)
 		set_both_ite(fractal, 0, 40);
-	else if (fractal->fractal_color_theme == FIRE)
-		set_both_ite(fractal, 150, 200);
 }
 
 void	set_simple_color(t_fractal *fractal)
@@ -58,6 +55,4 @@ void	set_simple_color(t_fractal *fractal)
 	if (fractal->fractal_color_theme >= WHITE
 		&& fractal->fractal_color_theme <= PURPLE)
 		fractal->simple_color = true;
-	else if (fractal->fractal_color_theme == FIRE)
-		fractal->simple_color = false;
 }

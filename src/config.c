@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 21:38:32 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/28 13:45:46 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/07 15:24:01 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	start_config(t_var *v)
 	ret = 1;
 	while (ret > 0)
 	{
-		ft_putstr_fd("[\e[92mfractol\e[0m - \e[31mconfig\e[0m] > ", 2);
+		ft_putstr_fd("[\x1b[92mfractol\x1b[0m - \x1b[31mconfig\x1b[0m] > ", 2);
 		get_next_line(STDIN_FILENO, &line); // check malloc
 		ret = execute_line(line, &v->fractal);
 		ft_free((void **)&line);
 	}
 	if (ret == -2) // why?
 		return ;
-	ft_putendl_fd("[\e[92mfractol\e[0m] Refreshing image...", 2);
+	ft_putendl_fd("[\x1b[92mfractol\x1b[0m Refreshing image...", 2);
 	refresh_image(v);
 }

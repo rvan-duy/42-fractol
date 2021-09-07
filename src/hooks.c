@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:47:57 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/28 13:42:27 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/07 15:48:56 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main_hook(t_var *v)
 	v->addr = mlx_get_data_addr(v->img, &v->addr_vars.bits_pp,
 			&v->addr_vars.line_len, &v->addr_vars.endian);
 	set_visuals(&v->fractal);
-	// set_iterations(&v->fractal);
 	set_simple_color(&v->fractal);
 	draw_fractal(v);
 	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
@@ -30,21 +29,21 @@ int	main_hook(t_var *v)
 int	key_hook(int keycode, t_var *v)
 {
 	printf("keycode: %d\n", keycode);
-	if (keycode == ESC_KEY_LINUX || keycode == ESC_KEY_MACOS)
+	if (keycode == KEY_ESC)
 		close_window(v);
 	if (keycode >= 123 && keycode <= 1236)
 	{
-		if (keycode == 123)
+		if (keycode == KEY_LEFT)
 			v->fractal.x_offset -= (0.05 / v->fractal.speed);
-		else if (keycode == 126)
+		else if (keycode == KEY_UP)
 			v->fractal.y_offset -= (0.05 / v->fractal.speed);
-		else if (keycode == 124)
+		else if (keycode == KEY_RIGHT)
 			v->fractal.x_offset += (0.05 / v->fractal.speed);
-		else if (keycode == 125)
+		else if (keycode == KEY_DOWN)
 			v->fractal.y_offset += (0.05 / v->fractal.speed);
 		refresh_image(v);
 	}
-	if (keycode == M_KEY_MACOS)
+	if (keycode == KEY_M)
 		start_config(v);
 	return (0);
 }
@@ -53,7 +52,6 @@ int	mouse_scroll_start(int scroll, int x, int y, t_var *v)
 {
 	(void)x;
 	(void)y;
-	printf("scroll: %d\n", scroll);
 	if (scroll == SCROLL_UP)
 	{
 		v->fractal.zoom *= 2;

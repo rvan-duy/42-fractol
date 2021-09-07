@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/13 16:45:08 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/28 13:42:37 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/07 15:38:33 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ int	main(int argc, char **argv)
 	v = (t_var *) malloc(sizeof(t_var));
 	if (v == NULL)
 		return (EXIT_FAILURE);
-	if (argc >= 2 && argc <= 3)
+	if (argc >= 2 && argc <= 6)
 	{
 		parse_fractal_type(&v->fractal, argv[1]);
 		parse_fractal_color_theme(&v->fractal, argv[2]);
+		parse_fractal_extra_values(&v->fractal, argv + 3);
 		init_var(&v->fractal);
 		init_mlx(v);
 		//set_visuals(&v->fractal);

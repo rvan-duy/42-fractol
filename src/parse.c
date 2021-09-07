@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 15:00:16 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/08/26 13:45:59 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/07 15:25:45 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	parse_fractal_type(t_fractal *fractal, char *argument)
 void	parse_fractal_color_theme(t_fractal *t_fractal, char *argument)
 {
 	if (argument == NULL)
-		t_fractal->fractal_color_theme = FIRE;
+		t_fractal->fractal_color_theme = GREEN;
 	else if (!ft_strncmp(argument, "white", 6))
 		t_fractal->fractal_color_theme = WHITE;
 	else if (!ft_strncmp(argument, "red", 4))
@@ -46,5 +46,12 @@ void	parse_fractal_color_theme(t_fractal *t_fractal, char *argument)
 	else if (!ft_strncmp(argument, "purple", 7))
 		t_fractal->fractal_color_theme = PURPLE;
 	else
-		t_fractal->fractal_color_theme = FIRE;
+		t_fractal->fractal_color_theme = GREEN;
+}
+
+void	parse_fractal_extra_values(t_fractal *t_fractal, char **arguments)
+{
+	t_fractal->extra_param_1 = ft_atod(arguments[0]);
+	t_fractal->extra_param_2 = ft_atod(arguments[1]);
+	printf("1: %f -- 2: %f\n", t_fractal->extra_param_1, t_fractal->extra_param_2);
 }
