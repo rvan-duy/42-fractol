@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 16:28:01 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/07 15:21:17 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/29 14:42:59 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct s_var {
 	void		*addr;
 	t_addr		addr_vars;
 	t_fractal	fractal;
+	bool		needs_draw;
+	bool		is_drawing;
 }	t_var;
 
 #endif

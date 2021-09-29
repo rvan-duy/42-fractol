@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 21:52:44 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/29 14:35:29 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/29 14:43:43 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	create_rgb(int r, int g, int b)
 
 void	refresh_image(t_var *v)
 {
-	mlx_destroy_image(v->mlx, v->img);
-	// main_hook(v);
+	v->needs_draw = true;
 }
 
 void	close_window(t_var *v)

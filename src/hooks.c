@@ -6,29 +6,30 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/08 22:47:57 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/07 15:48:56 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/29 17:10:39 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "hooks.h"
 
-// This could be swapped around but still need to check..
-
 int	main_hook(t_var *v)
 {
-	v->img = mlx_new_image(v->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	v->addr = mlx_get_data_addr(v->img, &v->addr_vars.bits_pp,
-			&v->addr_vars.line_len, &v->addr_vars.endian);
-	set_visuals(&v->fractal);
-	set_simple_color(&v->fractal);
-	draw_fractal(v);
-	mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
+	if (v->needs_draw == true && v->is_drawing == false)
+	{
+		v->is_drawing = true;
+		v->needs_draw = false;
+		set_visuals(&v->fractal);
+		set_simple_color(&v->fractal);
+		draw_fractal(v);
+		mlx_put_image_to_window(v->mlx, v->win, v->img, 0, 0);
+		ft_putendl_fd("[\x1b[92mfractol\x1b[0m] Image drawn", 2);
+		v->is_drawing = false;
+	}
 	return (0);
 }
 
 int	key_hook(int keycode, t_var *v)
 {
-	printf("keycode: %d\n", keycode);
 	if (keycode == KEY_ESC)
 		close_window(v);
 	if (keycode >= 123 && keycode <= 1236)

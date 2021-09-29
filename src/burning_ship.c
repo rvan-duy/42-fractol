@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/26 13:42:18 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/07 15:34:54 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/29 17:10:24 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,4 @@ void	burning_ship(t_var *v)
 		}
 		row++;
 	}
-	// max:3000 min:2990 // max:1000 min:990 // colors are fucked lol google it or smth
-	// fix escape characters
-	ft_putendl_fd("[\x1b[92mfractol\x1b[0m] Image drawn", 2);
 }

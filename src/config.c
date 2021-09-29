@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 21:38:32 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/07 15:24:01 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/29 16:05:50 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 static int	display_info(t_fractal *fractal)
 {
+	printf("red: %d\n", fractal->red);
+	printf("green: %d\n", fractal->green);
+	printf("blue: %d\n", fractal->blue);
 	printf("max_iterations:%d\n", fractal->max_ite);
 	printf("min_iterations:%d\n", fractal->min_ite);
-	printf("speed:%.2f\n", fractal->speed);
+	printf("speed: %.2f\n", fractal->speed);
+	printf("zoom: %.2f\n", fractal->zoom);
+	printf("x_offset: %.2f\n", fractal->x_offset);
+	printf("y_offset: %.2f\n", fractal->y_offset);
 	return (-2);
 }
 
@@ -44,12 +50,14 @@ void	start_config(t_var *v)
 	while (ret > 0)
 	{
 		ft_putstr_fd("[\x1b[92mfractol\x1b[0m - \x1b[31mconfig\x1b[0m] > ", 2);
-		get_next_line(STDIN_FILENO, &line); // check malloc
+		ret = get_next_line(STDIN_FILENO, &line);
+		if (ret == -1)
+			exit(EXIT_FAILURE);
 		ret = execute_line(line, &v->fractal);
 		ft_free((void **)&line);
 	}
-	if (ret == -2) // why?
+	if (ret == -2)
 		return ;
-	ft_putendl_fd("[\x1b[92mfractol\x1b[0m Refreshing image...", 2);
+	ft_putendl_fd("[\x1b[92mfractol\x1b[0m] Redrawing image...", 2);
 	refresh_image(v);
 }
