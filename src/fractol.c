@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/13 16:45:08 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/07 15:38:33 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/29 14:33:00 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,20 @@ int	main(int argc, char **argv)
 	if (argc >= 2 && argc <= 6)
 	{
 		parse_fractal_type(&v->fractal, argv[1]);
-		parse_fractal_color_theme(&v->fractal, argv[2]);
-		parse_fractal_extra_values(&v->fractal, argv + 3);
+		if (v->fractal.fractal_set == JULIA)
+			parse_fractal_color_theme(&v->fractal, argv[4]);
+		else
+			parse_fractal_color_theme(&v->fractal, argv[2]);
+		parse_fractal_extra(&v->fractal, argv + 2, argc);
 		init_var(&v->fractal);
 		init_mlx(v);
 		//set_visuals(&v->fractal);
 		set_iterations(&v->fractal);
 		//set_simple_color(&v->fractal);
-		mlx_expose_hook(v->win, main_hook, v);
+		// mlx_expose_hook(v->win, main_hook, v);
 		mlx_hook(v->win, KEY_PRESS, 1L << 0, key_hook, v);
 		mlx_hook(v->win, BUTTON_PRESS, 1L << 2, mouse_scroll_start, v);
+		mlx_loop_hook(v->mlx, main_hook, v);
 		mlx_loop(v->mlx);
 	}
 	ft_free((void **) &v);
