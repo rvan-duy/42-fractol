@@ -6,7 +6,7 @@
 /*   By: rvan-duy <rvan-duy@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/08/16 21:38:32 by rvan-duy      #+#    #+#                 */
-/*   Updated: 2021/09/29 16:05:50 by rvan-duy      ########   odam.nl         */
+/*   Updated: 2021/09/29 17:32:19 by rvan-duy      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,40 @@ static int	display_info(t_fractal *fractal)
 	return (-2);
 }
 
+static void	display_help(void)
+{
+	printf("Avaiable commands:\n");
+	printf("- help\n");
+	printf("- refresh\n");
+	printf("- theme: [theme]\n");
+	printf("- theme_list\n");
+	printf("- max_iterations: [iterations]\n");
+	printf("- min_iterations: [iterations]\n");
+	printf("- display_info\n");
+}
+
+static void	display_themes(void)
+{
+	printf("themes:\n");
+	printf("- white\n");
+	printf("- red\n");
+	printf("- green\n");
+	printf("- blue\n");
+	printf("- yellow\n");
+	printf("- teal\n");
+	printf("- purple\n");
+}
+
 static int	execute_line(char *line, t_fractal *fractal)
 {
 	if (!ft_strncmp(line, "refresh", 7))
 		return (0);
+	else if (!ft_strncmp(line, "help", 4))
+		display_help();
 	else if (!ft_strncmp(line, "theme:", 6))
 		parse_fractal_color_theme(fractal, line + 6);
+	else if (!ft_strncmp(line, "theme_list", 14))
+		display_themes();
 	else if (!ft_strncmp(line, "max_iterations:", 15))
 		fractal->max_ite = ft_atoi(line + 15);
 	else if (!ft_strncmp(line, "min_iterations:", 15))

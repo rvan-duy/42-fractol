@@ -6,13 +6,13 @@
 #    By: rvan-duy <rvan-duy@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/08/06 15:07:33 by rvan-duy      #+#    #+#                  #
-#    Updated: 2021/09/29 16:40:48 by rvan-duy      ########   odam.nl          #
+#    Updated: 2021/09/29 17:17:53 by rvan-duy      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= fractol
 CC		= gcc
-FLAGS	= -Ofast -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS	= -Ofast -Wall -Wextra -Werror
 HEADER	= -I src -I src/libft -I mlx
 
 SRC		= fractol.c \
