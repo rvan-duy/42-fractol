@@ -28,4 +28,6 @@ fractol supports the following hotkeys:
 <p align="center">
   <img alt="Inception" src="https://github.com/rvan-duy/fractol/blob/master/Inception.png" />
   <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/Burning_ship.png" />
+  <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/Mandelbrot_1.png" />
+  <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/Mandelbrot_2.png" />
 </p>
