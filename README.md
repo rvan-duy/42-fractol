@@ -25,4 +25,7 @@ fractol supports the following hotkeys:
 ```
 
 ## Screenshots
-
+<p align="center">
+  <img alt="Inception" src="https://github.com/rvan-duy/fractol/blob/master/Inception.png" />
+  <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/Burning_ship.png" />
+</p>
