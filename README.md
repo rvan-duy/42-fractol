@@ -26,8 +26,9 @@ fractol supports the following hotkeys:
 
 ## Screenshots
 <p align="center">
-  <img alt="Inception" src="https://github.com/rvan-duy/fractol/blob/master/Inception.png" />
-  <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/Burning_ship.png" />
-  <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/Mandelbrot_1.png" />
-  <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/Mandelbrot_2.png" />
+  <img alt="Inception" src="https://github.com/rvan-duy/fractol/blob/master/png/Inception.png" />
+  <img alt="Burning_ship" src="https://github.com/rvan-duy/fractol/blob/master/png/Burning_ship.png" />
+  <img alt="Mandelbrot_1" src="https://github.com/rvan-duy/fractol/blob/master/png/Mandelbrot_1.png" />
+  <img alt="Mandelbrot_2" src="https://github.com/rvan-duy/fractol/blob/master/png/Mandelbrot_2.png" />
+  <img alt="Julia" src="https://github.com/rvan-duy/fractol/blob/master/png/Julia.png" />
 </p>
