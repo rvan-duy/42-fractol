@@ -1,5 +1,5 @@
 # fractol
-A project which goal it is to create a small fractal exploration program in C.
+This is the fractol project in 42's curriculum. A project which goal it is to create a small fractal exploration program in C.
 
 ### Features
 - Mandelbrot set
@@ -7,7 +7,7 @@ A project which goal it is to create a small fractal exploration program in C.
 - Burning Ship set
 - Multiple color themes
 
-## Usage
+## Installation and Usage
 To create the executable:
 ```sh
 make
@@ -32,3 +32,6 @@ fractol supports the following hotkeys:
   <img alt="Mandelbrot_2" src="https://github.com/rvan-duy/fractol/blob/master/png/Mandelbrot_2.png" />
   <img alt="Julia" src="https://github.com/rvan-duy/fractol/blob/master/png/Julia.png" />
 </p>
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
