@@ -32,6 +32,3 @@ fractol supports the following hotkeys:
   <img alt="Mandelbrot_2" src="https://github.com/rvan-duy/fractol/blob/master/png/Mandelbrot_2.png" />
   <img alt="Julia" src="https://github.com/rvan-duy/fractol/blob/master/png/Julia.png" />
 </p>
-
-## License
-[MIT](https://opensource.org/licenses/MIT)
